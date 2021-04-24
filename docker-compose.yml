@@ -14,7 +14,7 @@ services:
       POSTGRES_PASSWORD: postgres
 
   motioneye:
-    image: ccrisan/motioneye:dev-amd64
+    image: ccrisan/motioneye:master-armhf
     restart: always
     volumes:
       - db-data:/var/motioneye/data
