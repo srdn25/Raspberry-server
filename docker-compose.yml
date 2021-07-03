@@ -21,5 +21,13 @@ services:
     volumes:
       - db-data:/var/grafana/data
 
+  prometeus:
+    image: prom/prometheus
+    restart: always
+    ports:
+     - "9090:9090"
+  volumes:
+    - db-data:/var/prometeus/data
+
 volumes:
   db-data:
