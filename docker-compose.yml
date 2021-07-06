@@ -19,7 +19,7 @@ services:
     ports:
       - "3001:3000"
     volumes:
-      - ./custom.ini:/grafana/grafana.ini
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
 
   prometeus:
     image: prom/prometheus
