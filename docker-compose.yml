@@ -31,6 +31,3 @@ services:
     command: redis-server --save 60 1 --requirepass MDNcVb924a --loglevel
     volumes:
       - ./../data/redis:/data
-
-volumes:
-  - ./data:data
