@@ -11,7 +11,7 @@ services:
     environment:
       POSTGRES_USER: adm1n
       POSTGRES_DB: postgres
-      POSTGRES_PASSWORD: _1_p0sTgr3s!>DB$
+      POSTGRES_PASSWORD: _1_p0sTgr3s!>DB
 
   grafana:
     image: grafana/grafana:8.0.4
@@ -27,7 +27,7 @@ services:
     image: redis:6.2-alpine
     restart: always
     ports:
-      - "6379":"6379"
+      - "6379:6379"
     command: redis-server --save 60 1 --requirepass MDNcVb924a --loglevel
     volumes:
       - data:/data
