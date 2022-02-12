@@ -2,12 +2,12 @@
 version: "3"
 services:
   postgres:
-    image: postgres:11.7-alpine
+    image: postgres:12.2-alpine
     restart: always
     ports:
       - "5432:5432"
     volumes:
-      - db-data:/var/postgres/data
+      - ${PWD}/data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: docker
       POSTGRES_DB: admin_
@@ -21,21 +21,5 @@ services:
     volumes:
       - ./grafana/grafana.ini:/etc/grafana/custom.ini
 
-  prometeus:
-    image: prom/prometheus
-    restart: always
-    ports:
-     - "9090:9090"
-    volumes:
-      - db-data:/var/prometeus/data
-
-  node_exporter:
-    image: prom/node-exporter
-    restart: always
-    ports:
-      - "9100:9100"
-    volumes:
-      - db-data:/var/node_exporter/data
-
 volumes:
-  db-data:
+  data:
