@@ -52,7 +52,6 @@ services:
   minio1:
     <<: *minio-common
     hostname: minio1
-    image: minio/monio:latest
     volumes:
       - data-minio1-1:/data1
       - data-minio1-2:/data2
