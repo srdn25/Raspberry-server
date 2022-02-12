@@ -65,7 +65,7 @@ services:
       - "9000:9000"
       - "9001:9001"
     depends_on:
-      - minio1
+      - minio
 
 volumes:
   data-minio1:
