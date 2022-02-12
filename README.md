@@ -10,11 +10,11 @@ Pre-require
 
 ### After clone repository
 * mkdir data/redis data/psql
-```docker-compose -f docker-compose.yml up -d```
+`docker-compose -f docker-compose.yml up -d`
 
 ### To delete leftover images, containers, volumes and other related data, run the following command:
 
-```sudo rm -rf /var/lib/docker```
+`sudo rm -rf /var/lib/docker`
 
 ### For connect to PSQL CLI
 * find container ID of postgres ```docker ps```
@@ -42,3 +42,4 @@ DROP USER your_user;
 ___
 ### P.S:
 * If you will change password or any value - this value should be without '$' symbols
+* After update docker-compose config just execute `docker-compose down` than `docker-compose -f docker-compose.yml up -d`
