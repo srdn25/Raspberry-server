@@ -43,3 +43,4 @@ ___
 ### P.S:
 * If you will change password or any value - this value should be without '$' symbols
 * After update docker-compose config just execute `docker-compose down` than `docker-compose -f docker-compose.yml up -d`
+* minio data store in docker default path (using global volume)
