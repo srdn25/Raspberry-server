@@ -3,7 +3,7 @@ version: "3"
 
 x-minio-common: &minio-common
   image: quay.io/minio/minio:RELEASE.2022-02-07T08-17-33Z
-  command: server --console-address ":9001" http://minio{1...5}/data-minio{1...2}
+  command: server --console-address ":9001" http://minio/data-minio
   expose:
     - "9000"
     - "9001"
@@ -49,12 +49,12 @@ services:
     volumes:
       - ./../data/redis:/data
 
-  minio1:
+  minio:
     <<: *minio-common
-    hostname: minio1
+    hostname: minio
     volumes:
-      - data-minio1-1:/data1
-      - data-minio1-2:/data2
+      - data-minio1:/data1
+      - data-minio2:/data2
 
   nginx:
     image: nginx:stable-alpine
@@ -68,7 +68,5 @@ services:
       - minio1
 
 volumes:
-  data-minio1-1:
-  data-minio1-2:
-  data-minio2-1:
-  data-minio2-2:
+  data-minio1:
+  data-minio2:
