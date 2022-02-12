@@ -54,8 +54,8 @@ services:
     hostname: minio1
     image: minio/monio:latest
     volumes:
-      - data1-1:/data1
-      - data1-2:/data2
+      - data-minio1-1:/data1
+      - data-minio1-2:/data2
 
 volumes:
   data-minio1-1:
