@@ -56,6 +56,17 @@ services:
       - data-minio1-1:/data1
       - data-minio1-2:/data2
 
+  nginx:
+    image: nginx:stable-alpine
+    hostname: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    depends_on:
+      - minio1
+
 volumes:
   data-minio1-1:
   data-minio1-2:
