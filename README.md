@@ -4,8 +4,12 @@ This repo for install required docker containers on RPI
 
 Pre-require
 * OS has docker-compose
+* place /
+* cloned repository in /raspberry
+* data folders in /data/psql and /data/redis
 
-### After clone repository 
+### After clone repository
+* mkdir data/redis data/psql
 ```docker-compose -f docker-compose.yml up -d```
 
 ### To delete leftover images, containers, volumes and other related data, run the following command:
