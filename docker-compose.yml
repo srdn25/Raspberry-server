@@ -3,13 +3,13 @@ version: "3"
 
 x-minio-common: &minio-common
   image: quay.io/minio/minio:RELEASE.2022-02-07T08-17-33Z
-  command: server /data{1...4} --console-address ":9001" http://minio/data-minio
+  command: server /data{1...4} --console-address ":9001"
   expose:
     - "9000"
     - "9001"
   environment:
     MINIO_ROOT_USER: adm1n_usr
-    MINIO_ROOT_PASSWORD: K7MDENG
+    MINIO_ROOT_PASSWORD: K7MDENG_pass
   healthcheck:
     test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
     interval: 30s
