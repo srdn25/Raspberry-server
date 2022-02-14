@@ -53,6 +53,9 @@ You can use scripts scripts/encode and scripts/decode
 * On side other developer, just run `./scripts/decode`
 * Enter password which used for encode
 * Script will create encoded `open-store.sh`
+* Run this script `./open-store.sh`
+* Execute `source ./open-store.sh`
+* Start docker compose `docker-compose -f docker-compose.yml up -d`
 
 ___
 ### P.S:
