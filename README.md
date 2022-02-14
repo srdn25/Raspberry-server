@@ -10,7 +10,9 @@ Pre-require
 
 ### After clone repository
 * mkdir data/redis data/psql
-`docker-compose -f docker-compose.yml up -d`
+* execute `./scripts/decode.sh`
+* enter default password 123
+* run `docker-compose -f docker-compose.yml up -d`
 
 ### To delete leftover images, containers, volumes and other related data, run the following command:
 
@@ -38,6 +40,19 @@ GRANT ALL PRIVILEGES ON DATABASE friend_db TO friend;
 DROP OWNED BY your_user;
 DROP USER your_user;
 ```
+
+### For share secret data (credentials or docker-compose with secret credentials)
+You can use scripts scripts/encode and scripts/decode
+
+* Place for execute is root raspberry repository folder
+* `touch open-store.sh` (if haven't this file)
+* Put secret data with set environments to this file (look at example)
+* Execute `./scripts/encode`
+* Script will ask password for encode. Enter any password
+* Will create or update file `private-store.pem`. Send this file and password to other developer
+* On side other developer, just run `./scripts/decode`
+* Enter password which used for encode
+* Script will create encoded `open-store.sh`
 
 ___
 ### P.S:
