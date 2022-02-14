@@ -14,6 +14,32 @@ Pre-require
 * enter default password 123
 * run `docker-compose -f docker-compose.yml up -d`
 
+### For quick reload docker after deploy
+* Run `./scripts/docker_reload.sh` it will stop current containers, and get credentials from private store, then will run containers
+
+### For update credentials
+* Place for execute is root raspberry repository folder
+* Remove old credentials `rm open-store.sh`
+* Create new credentials from example `cp open-store.example.sh open-store.sh`. Set new values
+* Execute `./scripts/encode`
+* Script will ask password for encode. Enter any password and remember it (for decode)
+
+### For share secret data (credentials or docker-compose with secret credentials)
+You can use scripts scripts/encode and scripts/decode
+
+* Place for execute is root raspberry repository folder
+* `touch open-store.sh` (if haven't this file)
+* Put secret data with set environments to this file (look at example)
+* Execute `./scripts/encode`
+* Script will ask password for encode. Enter any password
+* Will create or update file `private-store.pem`. Send this file and password to other developer
+* On side other developer, just run `./scripts/decode`
+* Enter password which used for encode
+* Script will create encoded `open-store.sh`
+* Run this script `./open-store.sh`
+* Execute `source ./open-store.sh`
+* Start docker compose `docker-compose -f docker-compose.yml up -d`
+
 ### To delete leftover images, containers, volumes and other related data, run the following command:
 
 `sudo rm -rf /var/lib/docker`
@@ -40,22 +66,6 @@ GRANT ALL PRIVILEGES ON DATABASE friend_db TO friend;
 DROP OWNED BY your_user;
 DROP USER your_user;
 ```
-
-### For share secret data (credentials or docker-compose with secret credentials)
-You can use scripts scripts/encode and scripts/decode
-
-* Place for execute is root raspberry repository folder
-* `touch open-store.sh` (if haven't this file)
-* Put secret data with set environments to this file (look at example)
-* Execute `./scripts/encode`
-* Script will ask password for encode. Enter any password
-* Will create or update file `private-store.pem`. Send this file and password to other developer
-* On side other developer, just run `./scripts/decode`
-* Enter password which used for encode
-* Script will create encoded `open-store.sh`
-* Run this script `./open-store.sh`
-* Execute `source ./open-store.sh`
-* Start docker compose `docker-compose -f docker-compose.yml up -d`
 
 ___
 ### P.S:
